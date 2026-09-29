@@ -190,10 +190,10 @@ class BatteryLogRepository:
     
     def is_network_allowed(self) -> bool:
         settings = self.load_settings()
-
         allowed_str = settings.get("allowed_networks", "")
+
         if not allowed_str:
-            return True
+            return False
         
         allowed_list = [net.strip() for net in allowed_str.split(",") if net.strip()]
         current_ssid = self.get_active_ssid()
