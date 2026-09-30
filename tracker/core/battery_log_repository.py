@@ -189,7 +189,9 @@ class BatteryLogRepository:
         return ""
     
     def is_network_allowed(self) -> bool:
-        settings = self.load_settings()
+        # The commented code was to handle network whitelisting locally.
+        # It is now handled on the server
+        """ settings = self.load_settings()
         allowed_str = settings.get("allowed_networks", "")
 
         if not allowed_str:
@@ -199,4 +201,6 @@ class BatteryLogRepository:
         current_ssid = self.get_active_ssid()
 
         print(f"[DEBUG] Current SSID: '{current_ssid}' | Allowed: {allowed_list}")
-        return current_ssid in allowed_list
+        return current_ssid in allowed_list """
+        
+        return True
